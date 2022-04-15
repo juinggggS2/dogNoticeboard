@@ -41,37 +41,37 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" 
-                                            placeholder="Name" name="custom_user_name">
+                                            placeholder="Name" name="customUserName">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" 
-                                            placeholder="Brith ex)20000101" name="custom_user_birth">
+                                            placeholder="Brith ex)20000101" name="customUserBirth">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" 
-                                        placeholder="Nickname" name="custom_user_nick">
+                                        placeholder="Nickname" name="customUserNick">
                                 </div>
                                  <div class="form-group">
                                     <input type="email" class="form-control form-control-user" 
-                                        placeholder="Email Address" name="custom_user_email">
+                                        placeholder="Email Address" name="customUserEmail">
                                 </div>
                                  <div class="form-group">
                                     <input type="text" class="form-control form-control-user" 
-                                        placeholder="Address" name="custom_user_address">
+                                        placeholder="Address" name="customUserAddress">
                                 </div>
                                  <div class="form-group">
                                     <input type="text" class="form-control form-control-user" 
-                                        placeholder="Phone ex)01012345678(-제외)" name="custom_user_phone">
+                                        placeholder="Phone ex)01012345678(-제외)" name="customUserPhone">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password" name="custom_user_pswd">
+                                            id="exampleInputPassword" placeholder="Password" name="customUserPswd">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password" name="custom_user_pswd">
+                                            id="exampleRepeatPassword" placeholder="Repeat Password" name="customUserPswd">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">

@@ -40,8 +40,8 @@ public class CustomUserServicempl implements CustomUserService{
 		map.put("reg_date", userDto.getUserRegDate());
 		map.put("mod_date", userDto.getUserModDate());
 
-		System.out.println("nick : "+map.get("nick"));
-		System.out.println(1);
+		System.out.println("nick ser: "+map.get("nick"));
+	
 		customUserDao.registerToLogin(userDto);
 		
 	}
@@ -49,7 +49,12 @@ public class CustomUserServicempl implements CustomUserService{
 
 	@Override
 	public String LoginToMain(String customUserEmail, String customUserPswd) {
-		// TODO Auto-generated method stub
+		System.out.println("check E : "+customUserEmail);
+		System.out.println("check P : "+customUserPswd);
+		
+		
+		
+		
 		return null;
 	}
 }

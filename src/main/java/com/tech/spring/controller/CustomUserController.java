@@ -43,6 +43,8 @@ public class CustomUserController {
 			return "redirect:login";
 	}
 	
+	
+	
 	//로그인페이지
 	@RequestMapping(method = RequestMethod.POST, value = "/loginCheck")
 	public String LoginToMain(HttpServletRequest request, Model model, UserDto userDto) {
@@ -50,11 +52,15 @@ public class CustomUserController {
 		
 		String customUserEmail = request.getParameter("userEmail");
 		String customUserPswd = request.getParameter("userPswd");
-		
 		System.out.println("customUserEmail : "+customUserEmail);
 		System.out.println("customUserPswd : "+customUserPswd);
 		
+		customUserService.LoginToMain(customUserEmail, customUserPswd);
 		
+		// if(customUserService.LoginToMain(customUserEmail, customUserPswd).equals(NoEmail)) { 
+		//	 System.out.println("아이디 불일치"); 
+		//	 return "login"; }
+		 
 		
 		
 		
