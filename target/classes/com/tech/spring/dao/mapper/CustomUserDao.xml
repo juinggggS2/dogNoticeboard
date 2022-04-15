@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.tech.spring.dao.CustomUserDao">
+ 	<!-- 회원가입 -->
+ 	<insert id="registerToLogin" parameterType="UserDto">
+ 		INSERT INTO 
+ 		custom_user 
+ 		VALUES (
+ 		NEXTVAL(custom_user_seq), 
+ 		#{custom_user_name}, 
+ 		#{custom_user_nick}, 
+ 		#{custom_user_email}, 
+ 		#{custom_user_pswd}, 
+ 		#{custom_user_birth}, 
+		#{custom_user_phone}, 
+		#{custom_user_address}, 
+		default, 
+		default, 
+		default, 
+		default )
+ 	</insert>
+  	<!-- <insert id="test">
+ 		INSERT INTO 
+ 		CUSTOM_USER 
+ 		VALUES (
+ 		2, 
+ 		'아이디', 
+ 		'닉네임', 
+ 		'이메일', 
+ 		'비밀번호', 
+ 		'생일', 
+		'휴대폰', 
+		'주소', 
+		default, 
+		default, 
+		default, 
+		default )
+ 	</insert>  -->
+ 
+ 
+
+ 
+ </mapper>
