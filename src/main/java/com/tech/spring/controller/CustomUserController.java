@@ -5,21 +5,37 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.spring.dto.UserDto;
 import com.tech.spring.service.CustomUserService;
 
 @Controller
+@RequestMapping("/user")
 public class CustomUserController {
 
 	@Autowired
 	CustomUserService customUserService;
 	
+	@GetMapping("/register")
+	public String register() {
+		System.out.println("=========pass by register()=============");
+		
+		return "user/register";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		System.out.println("=========pass by login()=============");
+
+		return "user/login";
+	}
+	
 	//회원가입페이지
-	@RequestMapping(method = RequestMethod.POST, value = "/registerToLogin")
-	public String registerToLogin(HttpServletRequest request, Model model, UserDto userDto) {
+	@PostMapping("/registerToLogin")
+	public String registerToLogin(UserDto dto) {
 		// User
 		// Class = User
 		// Variable = user
@@ -30,23 +46,22 @@ public class CustomUserController {
 		// Field = userName & DB col = user_name
 		// Alias -> select user_name as userName from user where ~ 
 			System.out.println("=========pass by registerToLogin()=============");
-			System.out.println("DTO: "+userDto.toString());
-			System.out.println("name: "+userDto.getCustomUserName());
-			System.out.println("nick: "+userDto.getCustomUserNick());
-			System.out.println("email: "+userDto.getCustomUserEmail());
-			System.out.println("pswd: "+userDto.getCustomUserPswd());
-			System.out.println("birth: "+userDto.getCustomUserBirth());
-			System.out.println("phone: "+userDto.getCustomUserPhone());
-			System.out.println("address : "+userDto.getCustomUserAddress());
+			System.out.println("DTO: "+dto.toString());
+			System.out.println("name: "+dto.getCustom_user_name());
+			System.out.println("nick: "+dto.getCustom_user_nick());
+			System.out.println("email: "+dto.getCustom_user_email());
+			System.out.println("pswd: "+dto.getCustom_user_pswd());
+			System.out.println("birth: "+dto.getCustom_user_birth());
+			System.out.println("phone: "+dto.getCustom_user_phone());
+			System.out.println("address : "+dto.getCustom_user_address());
 			
-			customUserService.registerToLogin(userDto);
+			customUserService.registerToLogin(dto);
 			return "redirect:login";
 	}
 	
 	
-	
 	//로그인페이지
-	@RequestMapping(method = RequestMethod.POST, value = "/loginCheck")
+	@PostMapping("/loginCheck")
 	public String LoginToMain(HttpServletRequest request, Model model, UserDto userDto) {
 		System.out.println("=========pass by registerToLogin()=============");
 		
@@ -57,12 +72,7 @@ public class CustomUserController {
 		
 		customUserService.LoginToMain(customUserEmail, customUserPswd);
 		
-		// if(customUserService.LoginToMain(customUserEmail, customUserPswd).equals(NoEmail)) { 
-		//	 System.out.println("아이디 불일치"); 
-		//	 return "login"; }
-		 
-		
-		
+
 		
 		return "redirect:main";
 		

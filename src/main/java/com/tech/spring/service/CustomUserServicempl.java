@@ -1,8 +1,5 @@
 package com.tech.spring.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -25,24 +22,19 @@ public class CustomUserServicempl implements CustomUserService{
 	 */
 
 	@Override
-	public void registerToLogin(UserDto userDto) {
-		Map<String, Object> map = new HashMap<String, Object>();
+	public void registerToLogin(UserDto dto) {
 		
-		map.put("name", userDto.getCustomUserName());
-		map.put("nick", userDto.getCustomUserNick());
-		map.put("email", userDto.getCustomUserEmail());
-		map.put("pswd", userDto.getCustomUserPswd());
-		map.put("birth", userDto.getCustomUserBirth());
-		map.put("phone", userDto.getCustomUserPhone());
-		map.put("address", userDto.getCustomUserAddress());
-		map.put("auth", userDto.getCustomUserAuth());
-		map.put("del_yn", userDto.getCustomUserDelYn());
-		map.put("reg_date", userDto.getUserRegDate());
-		map.put("mod_date", userDto.getUserModDate());
-
-		System.out.println("nick ser: "+map.get("nick"));
-	
-		customUserDao.registerToLogin(userDto);
+		//전화번호 - 자르기 ex)010-1234-5678 -> 01012345678
+		String Pnum = "";
+		String arr_Pnum[] = dto.getCustom_user_phone().split("-");
+		
+		for (int i = 0; i < arr_Pnum.length; i++) {
+			Pnum += arr_Pnum[i];
+		}
+		
+		dto.setCustom_user_phone(Pnum);
+		
+		customUserDao.registerToLogin(dto);
 		
 	}
 
