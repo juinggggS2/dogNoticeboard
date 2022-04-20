@@ -30,4 +30,24 @@ public class CustomUserDaompl implements CustomUserDao {
 		}
 		System.out.println("00");
 	}
+
+	@Override
+	public int nickCheck(String custom_user_nick) {
+		return sqlSession.selectOne(nameSpace +".nickCheck", custom_user_nick);
+	}
+
+	@Override
+	public int emailCheck(String custom_user_email) {
+		return sqlSession.selectOne(nameSpace +".emailCheck", custom_user_email);
+	}
+
+
+	//로그인
+	@Override
+	public UserDto loginToMain(String custom_user_email) {
+		
+		return sqlSession.selectOne(nameSpace +".loginToMain", custom_user_email);
+	}
+	
+	
 }

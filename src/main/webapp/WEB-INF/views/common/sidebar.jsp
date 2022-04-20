@@ -7,7 +7,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="main">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -39,8 +39,7 @@
                         <a class="collapse-item" href="${path }/user/forgetPswd">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">OTHER PAGES:</h6>
-                        <a class="collapse-item" href="board">Board</a>
-                        <a class="collapse-item" href="">Q&A</a>
+                        <a class="collapse-item" href="${path }/board/board">Board</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">ADMIN PAGES:</h6>
                         <a class="collapse-item" href="">Member management</a>

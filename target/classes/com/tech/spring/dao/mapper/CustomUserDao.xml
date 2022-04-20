@@ -22,25 +22,40 @@
 		default, 
 		default )
  	</insert>
-  	<!-- <insert id="test">
- 		INSERT INTO 
- 		CUSTOM_USER 
- 		VALUES (
- 		2, 
- 		'아이디', 
- 		'닉네임', 
- 		'이메일', 
- 		'비밀번호', 
- 		'생일', 
-		'휴대폰', 
-		'주소', 
-		default, 
-		default, 
-		default, 
-		default )
- 	</insert>  -->
+ 	
+  	<!-- 닉넴중복체크 -->
+ 	<select id="nickCheck" parameterType="String" resultType="Integer">
+ 		select 
+			count(custom_user_nick) 
+		from 
+			custom_user
+		where
+			custom_user_nick = #{custom_user_nick}
+ 	</select>
+ 	
+ 	<!-- 이멜중복체크 -->
+ 	<select id="emailCheck" parameterType="String" resultType="Integer">
+ 		select 
+			count(custom_user_email)
+		from 
+			custom_user
+		where
+			custom_user_email = #{custom_user_email}
+ 	</select>
  
- 
-
+	<!-- 로그인 -->
+ 	<select id="loginToMain" parameterType="String" resultType="UserDto">
+ 		select
+			custom_user_seq,
+			custom_user_name,
+			custom_user_nick,
+			custom_user_email,
+			custom_user_auth,
+			custom_user_pswd
+		from
+			custom_user
+		where 
+			custom_user_email = #{custom_user_email}
+ 	</select>
  
  </mapper>

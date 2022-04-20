@@ -4,9 +4,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +36,7 @@
             	<c:import url="/WEB-INF/views/common/topbar.jsp"/>
 			</div>
 		</div>
-                
+     </div>           
 
     <!-- Bootstrap core JavaScript-->
     <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>

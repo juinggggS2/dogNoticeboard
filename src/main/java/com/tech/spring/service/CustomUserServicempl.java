@@ -40,13 +40,20 @@ public class CustomUserServicempl implements CustomUserService{
 
 
 	@Override
-	public String LoginToMain(String customUserEmail, String customUserPswd) {
-		System.out.println("check E : "+customUserEmail);
-		System.out.println("check P : "+customUserPswd);
+	public UserDto loginToMain(String custom_user_email) {
 		
-		
-		
-		
-		return null;
+		return customUserDao.loginToMain(custom_user_email);
+	}
+
+
+	@Override
+	public int nickCheck(String custom_user_nick) {
+		return customUserDao.nickCheck(custom_user_nick);
+	}
+
+
+	@Override
+	public int emailCheck(String custom_user_email) {
+		return customUserDao.emailCheck(custom_user_email);
 	}
 }

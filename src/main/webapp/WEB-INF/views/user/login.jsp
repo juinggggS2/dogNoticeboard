@@ -43,8 +43,8 @@
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     
-                                    <form action="loginCheck" method="post">
-                                    <form class="user">
+                                    
+                                    <form class="user" action="login" id="login" method="post">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -61,10 +61,9 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                         <button type="submit" class="btn btn-primary btn-user btn-block" 
-                                         	name="loginBtn" onclick="loginbtn()">
-		                                    Login
-	                                	</button>
+                                         <a href="javascript:login.submit();" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </a>
                                         <hr>
                                         <a href="" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -73,7 +72,7 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>
-                                    </form>
+                                    
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="${path }/user/forgetPswd">Forgot Password?</a>
@@ -92,7 +91,7 @@
 
         </div>
 
-    </div>
+    
 
     <!-- Bootstrap core JavaScript-->
     <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
@@ -105,25 +104,6 @@
     <script src="${path}/resources/js/sb-admin-2.min.js"></script>
 
 
-	<script>
-	function loginbtn() {
-		var userEmail = $('input[name=userEmail]').val();
-		console.log(userEmail);
-		var userPswd = $('input[name=userPswd]').val();
-		console.log(userPswd);
-		if(userEmail==""||userPswd=="") {
-			console.log(userEmail);
-			console.log(userPswd);
-			alret('오류')
-			notify('warning', '', '아이디와 비밀번호를 확인해주세요');
-		} else {
-			console.log('성공');
-			alret('성고옹')
-			$('button[name=loginBtn]').attr('type', 'submit');
-		}
-		
-	}
-	</script>
 
 </body>
 

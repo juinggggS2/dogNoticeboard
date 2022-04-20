@@ -2,7 +2,7 @@ function join_check() {
 	
 	let name = $('#name').val();
 	let birth = $('#birth').val();
-	let nickname = $('#nickname').val();
+	let nick = $('#nick').val();
 	let email = $('#email').val();
 	let address = $('#address').val();
 	
@@ -13,7 +13,7 @@ function join_check() {
 		
 	$('#name_check').text('');
 	$('#birth_check').text('');
-	$('#nickname_check').text('');
+	$('#nick_check').text('');
 	$('#email_check').text('');
 	$('#address_check').text('');
 	$('#phone_check').text('');
@@ -37,10 +37,10 @@ function join_check() {
 		return false;
 	}
 	
-	if (nickname == "") {
-		$('#nickname_check').text('닉네임을 입력해주세요!');
-		$('#nickname_check').css('color', 'red');
-		$('#nickname').focus();
+	if (nick == "") {
+		$('#nick_check').text('닉네임을 입력해주세요!');
+		$('#nick_check').css('color', 'red');
+		$('#nick').focus();
 		
 		return false;
 	}
@@ -105,30 +105,30 @@ function join_check() {
 	}
 }
 
-$('#nickname').blur(function(){
+$('#nick').blur(function(){
 	
-	let nickname = $('#nickname').val();
-	let nickname_reg = RegExp(/^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,30}$/);
+	let nick = $('#nick').val();
+	let nick_reg = RegExp(/^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,30}$/);
 	
 	$.ajax({
-		url : '/Custom/user/nicknameCheck?custom_user_nickname=' + nickname,
+		url : '/user/nickCheck?custom_user_nick=' + nick,
 		type : 'post',
 		success : function(result) {
 			if (result == 0) {
-				$('#nickname_check').text('사용할 수 있는 닉네임 입니다!');
-				$('#nickname_check').css('color', 'green');
+				$('#nick_check').text('사용할 수 있는 닉네임입니다!');
+				$('#nick_check').css('color', 'green');
 			} else {
-				$('#nickname_check').text('사용할 수 없는 아이디입니다!');
-				$('#nickname_check').css('color', 'red');
-				$('#nickname').focus();
+				$('#nick_check').text('이미 사용중인 닉네임입니다!');
+				$('#nick_check').css('color', 'red');
+				$('#nick').focus();
 			}
-			if (!nickname_reg.test(nickname)) {
-				$('#nickname_check').text('닉네임은 2글자 이상 30글자 이하로 입력해주세요!');
-				$('#nickname_check').css('color', 'red');
-				$('#nickname').focus();
+			if (!nick_reg.test(nick)) {
+				$('#nick_check').text('닉네임은 2글자 이상 30글자 이하로 입력해주세요!');
+				$('#nick_check').css('color', 'red');
+				$('#nick').focus();
 			}
 		}, error : function() {
-			console.log('Ajax 에러!');
+			console.log('Ajax 에러');
 		}
 	})
 });
@@ -139,15 +139,15 @@ $('#email').blur(function() {
 	let email_reg = RegExp(/^[a-z0-9\.\-_]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/);
 	
 	$.ajax({
-		url : '/Custom/user/emailCheck?custom_user_email=' + email,
+		url : '/user/emailCheck?custom_user_email=' + email,
 		type : 'post',
 		success : function(result) {
 			if (result == 0) {
 				$('#email_check').text('사용할 수 있는 이메일 입니다!');
 				$('#email_check').css('color', 'green');
 			} else {
-				$('#email_check').text('사용할 수 없는 이메일입니다!');
-				$('#email_chekc').css('color', 'red');
+				$('#email_check').text('이미 사용중인 이메일입니다!');
+				$('#email_check').css('color', 'red');
 				$('#email').focus();
 			}
 			if (!email_reg.test(email)) {
@@ -156,7 +156,7 @@ $('#email').blur(function() {
 				$('#email').focus();
 			}
 		}, error : function() {
-			console.log('Ajax 에러!');
+			console.log('Ajax 에러');
 		}
 	})
 });

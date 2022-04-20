@@ -10,9 +10,9 @@ public class CustomEduController {
 	
 	
 	@RequestMapping("/main")
-	public String main(Model model) {
+	public String main() {
 		System.out.println("=========pass by main()=============");
-		/* CustomUserService.test(); */
+		
 		return "/main";
 		
 	}
