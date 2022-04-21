@@ -25,13 +25,13 @@ public class CustomBoardController {
 	
 	//보드이동
 	@GetMapping("/board")
-	public String board(HttpServletRequest request, SearchVO searchVO, Model model) {
+	public String boardList(HttpServletRequest request, Model model) {
 		System.out.println("=========pass by board()=============");
 		
-		/*
-		 * ArrayList<BoardDto> boardDto = customBoardService.boardList();
-		 * model.addAttribute("boardDto", boardDto);
-		 */
+		
+		  ArrayList<BoardDto> boardList = customBoardService.boardList();
+		  model.addAttribute("boardDto", boardList);
+		 
 		
 		return "board/board";	
 	}

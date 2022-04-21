@@ -19,13 +19,16 @@ public class CustomBoardDaompl implements CustomBoardDao {
 	
 	  private static String nameSpace = "com.tech.spring.dao.CustomerBoardDao";
 	  
-	 /* @Override public ArrayList<BoardDto> boardList() {
-	 * System.out.println("=====DaoImpl boardList()=====");
-	 * 
-	 * List<BoardDto> boardDto = sqlSession.selectList(nameSpace + ".boardList");
-	 * 
-	 * return (ArrayList<BoardDto>) boardDto; }
-	 */
+	 @Override public ArrayList<BoardDto> boardList() {
+		 System.out.println("=====DaoImpl boardList()=====");
+	 List<BoardDto> boardDto = sqlSession.selectList(nameSpace + ".boardList");
+	  for (BoardDto dto : boardDto) {
+		  System.out.println("타이틀: "+dto.getBoard_title());
+		
+	}
+	 return (ArrayList<BoardDto>) boardDto; 
+	 }
+	 
 	
 	
 

@@ -7,7 +7,7 @@ import com.tech.spring.dto.BoardDto;
 public interface CustomBoardService {
 
 	//보드목록
-	/* ArrayList<BoardDto> boardList(); */
+	public ArrayList<BoardDto> boardList(); 
 	
 }
 

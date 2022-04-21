@@ -116,11 +116,11 @@ public class CustomUserController {
 			}
 			
 			mav.addObject("msg", "로그인에 성공하였습니다.");
-			mav.addObject("url", "redirect:/main");
+			mav.addObject("url", "/main");
 			
 		} else {
 			mav.addObject("msg", "로그인에 실패하였습니다.");
-			mav.addObject("url", "redirect:/user/login");
+			mav.addObject("url", "/user/login");
 		}
 
 		return mav;

@@ -15,16 +15,14 @@
 
     <!-- Custom fonts for this template -->
     <link href="${path }/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="${path }/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="${path }/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 
 <body id="page-top">
@@ -53,62 +51,32 @@
 	                                    <button class="btn btn-primary me-md-2 mr-3" type="button">글쓰기</button>
 	                                    <button class="btn btn-primary" type="button">글삭제</button> 
 	                                </div>
+	                            <c:forEach var="list" items="${boardList }">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th width="5%"></th>
+                                            <th width="5%">No</th>
+                                            <th width="10%">작성자</th>
+                                            <th width="30%">제목</th>
+                                            <th width="40%">내용</th>
+                                            <th width="20%">수정일</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
+                                            <td>
+                                            <input type="checkbox">
+											</td>
+                                            <td>${list.board_seq }</td>
+                                            <td>${list.board_writer }</td>
+                                            <td>${list.board_title }</td>
+                                            <td>${list.board_text }</td>
+                                            <td>${list.board_mod_date}</td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>

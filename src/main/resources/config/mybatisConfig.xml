@@ -8,7 +8,7 @@
   		<typeAlias type="java.lang.Integer" alias="Integer"/>
 		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="com.tech.spring.dto.UserDto" alias="UserDto"/>
-
-  		
+		<typeAlias type="com.tech.spring.dto.BoardDto" alias="BoardDto"/>
+  		<typeAlias type="com.tech.spring.vopage.PageVO" alias="PageVO"/>
   	</typeAliases>
   </configuration>

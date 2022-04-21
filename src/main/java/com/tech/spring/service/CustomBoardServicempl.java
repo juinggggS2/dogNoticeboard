@@ -12,13 +12,17 @@ import com.tech.spring.dto.BoardDto;
 @Service
 public class CustomBoardServicempl implements CustomBoardService{
 
-	/*
-	 * @Inject CustomBoardDao customBoardDao;
-	 * 
-	 * @Override public ArrayList<BoardDto> boardList() {
-	 * 
-	 * return customBoardDao.boardList(); }
-	 */
+	
+	  @Inject 
+	  CustomBoardDao customBoardDao;
+	  
+	  @Override 
+	  public ArrayList<BoardDto> boardList() {
+	  
+	  return customBoardDao.boardList(); 
+	  
+	  }
+	 
 
 		
 

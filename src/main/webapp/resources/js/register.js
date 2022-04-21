@@ -104,9 +104,9 @@ function join_check() {
 
 	}
 }
-
+console.log('접근');
 $('#nick').blur(function(){
-	
+	console.log('nick');
 	let nick = $('#nick').val();
 	let nick_reg = RegExp(/^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,30}$/);
 	
@@ -128,7 +128,7 @@ $('#nick').blur(function(){
 				$('#nick').focus();
 			}
 		}, error : function() {
-			console.log('Ajax 에러');
+			console.log('오류');
 		}
 	})
 });
@@ -156,7 +156,7 @@ $('#email').blur(function() {
 				$('#email').focus();
 			}
 		}, error : function() {
-			console.log('Ajax 에러');
+			console.log('오류');
 		}
 	})
 });
