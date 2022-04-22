@@ -42,41 +42,36 @@
 				<c:import url="/WEB-INF/views/common/topbar.jsp"/>
   
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                 <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
 	                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-	                                    <button class="btn btn-primary me-md-2 mr-3" type="button">글쓰기</button>
-	                                    <button class="btn btn-primary" type="button">글삭제</button> 
-	                                </div>
-	                            <c:forEach var="list" items="${boardList }">
+	                                 <button class="btn btn-primary me-md-2 mr-3" type="button">글쓰기</button>
+	                                 <button class="btn btn-primary" type="button">글삭제</button> 
+	                            </div>
+	                            
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
+                                        <tr >
                                             <th width="5%"></th>
                                             <th width="5%">No</th>
-                                            <th width="10%">작성자</th>
-                                            <th width="30%">제목</th>
-                                            <th width="40%">내용</th>
+                                            <th width="15%">작성자</th>
+                                            <th width="25%">제목</th>
+                                            <th width="30%">내용</th>
                                             <th width="20%">수정일</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
+                                 <c:forEach var="list" items="${boardList }">
                                         <tr>
-                                            <td>
-                                            <input type="checkbox">
-											</td>
+                                            <td> <input type="checkbox"> </td>
                                             <td>${list.board_seq }</td>
                                             <td>${list.board_writer }</td>
-                                            <td>${list.board_title }</td>
+                                            <td><a href="boardDetail?board_seq=${list.board_seq }">${list.board_title }</a></td>
                                             <td>${list.board_text }</td>
                                             <td>${list.board_mod_date}</td>
                                         </tr>
-                                    </tbody>
+                                 </c:forEach>
                                 </table>
-                                </c:forEach>
                             </div>
                         </div>
                     </div>

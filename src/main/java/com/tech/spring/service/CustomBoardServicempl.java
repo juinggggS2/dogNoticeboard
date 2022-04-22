@@ -22,6 +22,12 @@ public class CustomBoardServicempl implements CustomBoardService{
 	  return customBoardDao.boardList(); 
 	  
 	  }
+
+	@Override
+	public BoardDto boardDetail(int boardSeq) {
+		
+		return customBoardDao.boardDetail(boardSeq);
+	}
 	 
 
 		

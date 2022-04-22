@@ -26,4 +26,26 @@ order by
 	board_seq desc
  
  </select>
+ 
+ 
+ <select id="boardDetail" parameterType="Integer" resultType="BoardDto">
+	 select 
+		board_seq,
+		custom_user_nick as board_writer,
+		board_title,
+		board_text,
+		board_img_path
+	from 
+		general_board gb join custom_user cu 
+	on
+		gb.board_writer = cu.custom_user_nick
+	where 
+		board_seq = #{board_seq};
+ </select>
+ 
+ 
+ 
+ 
+ 
+ 
 </mapper>  

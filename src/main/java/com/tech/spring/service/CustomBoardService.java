@@ -9,5 +9,8 @@ public interface CustomBoardService {
 	//보드목록
 	public ArrayList<BoardDto> boardList(); 
 	
+	public BoardDto boardDetail(int boardSeq) ;
+	
 }
+
 

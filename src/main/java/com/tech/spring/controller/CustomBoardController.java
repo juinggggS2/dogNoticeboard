@@ -23,16 +23,34 @@ public class CustomBoardController {
 	@Autowired
 	CustomBoardService customBoardService;
 	
-	//보드이동
+	//게시물보드이동
 	@GetMapping("/board")
 	public String boardList(HttpServletRequest request, Model model) {
-		System.out.println("=========pass by board()=============");
+		System.out.println("=========pass by boardList()=============");
 		
 		
 		  ArrayList<BoardDto> boardList = customBoardService.boardList();
-		  model.addAttribute("boardDto", boardList);
+		  model.addAttribute("boardList", boardList);
 		 
 		
 		return "board/board";	
 	}
+	
+	//게시물상세보기조희이동
+	@GetMapping("/boardDetail")
+	public String boardDetail(HttpServletRequest request, Model model) {
+		System.out.println("=========pass by boardDetail()=============");
+		int boardSeq = Integer.parseInt(request.getParameter("board_seq"));
+		System.out.println("board_seq : "+boardSeq);
+		
+		BoardDto boardDto = new BoardDto();
+		boardDto = customBoardService.boardDetail(boardSeq);
+		
+		model.addAttribute("boardDetail", boardDto);
+		
+		
+		return "board/boardDetail";
+		
+	}
+	
 }
