@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
 	                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-	                                 <button class="btn btn-primary me-md-2 mr-3" type="button">글쓰기</button>
+	                                 <button class="btn btn-primary me-md-2 mr-3" onclick="location.href='${path}/board/boardInsert'">글쓰기</button>
 	                                 <button class="btn btn-primary" type="button">글삭제</button> 
 	                            </div>
 	                            

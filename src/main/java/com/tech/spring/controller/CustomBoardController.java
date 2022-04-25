@@ -3,6 +3,7 @@ package com.tech.spring.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tech.spring.dto.BoardDto;
 import com.tech.spring.service.CustomBoardService;
@@ -27,7 +29,6 @@ public class CustomBoardController {
 	@GetMapping("/board")
 	public String boardList(HttpServletRequest request, Model model) {
 		System.out.println("=========pass by boardList()=============");
-		
 		
 		  ArrayList<BoardDto> boardList = customBoardService.boardList();
 		  model.addAttribute("boardList", boardList);
@@ -50,7 +51,37 @@ public class CustomBoardController {
 		
 		
 		return "board/boardDetail";
+	}
+	
+	//게시물생성페이지이동
+	@GetMapping("/boardInsert")
+	public String boardInsert() {
+		return "board/boardInsert";
+	}	
+	
+	//게시물생성하기
+	@PostMapping("/boardInsert")
+	public ModelAndView boardInsertExecute(BoardDto dto, HttpSession session) {
+		ModelAndView mav = new ModelAndView("msg/msg");
+		
+		
+		return null;
 		
 	}
+	
+	
+	
+	
+	
+	//게시물수정페이지이동
+		@GetMapping("/boardDetailModi")
+		public String boardDetailModi() {
+			return "board/boardDetailModi";
+		}	
+	
+	
+	
+	
+	
 	
 }

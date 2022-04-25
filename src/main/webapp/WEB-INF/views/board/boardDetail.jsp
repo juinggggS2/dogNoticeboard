@@ -47,10 +47,6 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-	                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-	                                 <button class="btn btn-primary me-md-2 mr-3" type="button">글쓰기</button>
-	                                 <button class="btn btn-primary" type="button">글삭제</button> 
-	                            </div>
 	                            
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
@@ -75,17 +71,17 @@
                                       <td>${boardDetail.board_text }</td>
                                    </tr>
 							      <tr>
-							         <td >첨부</td>
+							         <td >파일</td>
 							          <td>
 							            <a href=""></a>   
 							         </td>
 							      </tr>
 							      <tr>
 							         <td colspan="2">
-										<button id="button1" onclick="button1_click();">수정</button> &nbsp;&nbsp;  
+										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp;  
 										<!-- &nbsp;는 띄어쓰기, 즉 공백을 나타내는 특수문자  -->
-							            <a href="list">목록보기</a> &nbsp;&nbsp;
-							            <a href="delete?bid=${content_view.bid }">삭제</a> &nbsp;&nbsp;
+							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDetailModi'">수정</button> &nbsp;&nbsp;  
+							            <button class="btn btn-primary" >삭제</button> &nbsp;&nbsp;  
 							         </td>
 							      </tr>
    

@@ -42,6 +42,9 @@ public class CustomBoardDaompl implements CustomBoardDao {
 		
 		return boardDto;
 	}
+	
+	
+	
 	 
 	
 	
