@@ -58,7 +58,7 @@ public class CustomUserController {
 		return "redirect:login";
 	}
 
-	// 닉네임 중복 체크, 글자수 제한(2~30자) //220420적용안되서수정해야됌
+	// 닉네임 중복 체크, 글자수 제한(2~30자)
 	@ResponseBody
 	@PostMapping("/nickCheck")
 	public int nickCheck(@RequestParam String custom_user_nick) {
@@ -66,7 +66,7 @@ public class CustomUserController {
 
 	}
 
-	// 이멜중복체크 //220420적용안되서수정해야됌
+	// 이멜중복체크 
 	@ResponseBody
 	@PostMapping("/emailCheck")
 	public int emailCheck(@RequestParam String custom_user_email) {
@@ -126,5 +126,23 @@ public class CustomUserController {
 		return mav;
 
 	}
+	
+	//로그아웃
+	@GetMapping("/logout")
+	public ModelAndView logout(HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView("msg/msg");
+		
+		session.invalidate(); //세션초기화
+		
+		mav.addObject("msg", "로그아웃되었습니다.");
+		mav.addObject("url", "/main");
+
+		return mav;
+		
+	}
+	
+	
+	
 
 }
