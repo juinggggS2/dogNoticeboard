@@ -43,8 +43,19 @@ public class CustomBoardDaompl implements CustomBoardDao {
 		return boardDto;
 	}
 	
+	@Override
+	public void boardInsert(BoardDto dto) {
+		System.out.println("=====DaoImpl boardInsert()=====");
+		
+		sqlSession.insert(nameSpace + ".boardInsert", dto);
+		
+	}
 	
 	
+	@Override
+	public void boardDelete(int boardSeq) {
+		sqlSession.delete("boardDelete", boardSeq);
+	}
 	 
 	
 	

@@ -8,8 +8,12 @@ public interface CustomBoardService {
 
 	//보드목록
 	public ArrayList<BoardDto> boardList(); 
-	
+	//보드상세보기
 	public BoardDto boardDetail(int boardSeq) ;
+	//보드글쓰기
+	public void boardInsert(BoardDto dto, String userNick);
+	//보드글삭제
+	public void boardDelete(int boardSeq);
 	
 }
 

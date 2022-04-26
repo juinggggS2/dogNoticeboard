@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tech.spring.dto.BoardDto;
@@ -64,13 +65,13 @@ public class CustomBoardController {
 	public ModelAndView boardInsertExecute(BoardDto dto, HttpSession session) {
 		ModelAndView mav = new ModelAndView("msg/msg");
 		
+		customBoardService.boardInsert(dto, (String) session.getAttribute("userNick"));
 		
-		return null;
+		mav.addObject("msg", "게시글 전송");
+		mav.addObject("url", "/board/boardDetail?board_seq=" + dto.getBoard_seq());
 		
+		return mav;
 	}
-	
-	
-	
 	
 	
 	//게시물수정페이지이동
@@ -78,7 +79,23 @@ public class CustomBoardController {
 		public String boardDetailModi() {
 			return "board/boardDetailModi";
 		}	
-	
+		
+		//게시물삭제
+		@RequestMapping("/boardDelete")
+		public ModelAndView boardDelete(@RequestParam int board_seq) {
+			
+			ModelAndView mav = new ModelAndView("msg/msg");
+			
+			customBoardService.boardDelete(board_seq);
+			
+			mav.addObject("msg", "게시글 삭제");
+			mav.addObject("url", "/board/board");
+			
+			return mav;
+			
+			
+			
+		}
 	
 	
 	

@@ -56,7 +56,9 @@
                                   
                                   <tr>
                                       <th>게시판 타입</th>
-                                      <td>자유게시판 NO.${boardDetail.board_seq }</td>
+                                      <td>자유게시판
+                                      <input type="hidden" class="form-control" id="no" value="${boardDetail.board_seq }" readonly>
+										</td>
                                   </tr>
                                   <tr>
                                       <th >작성자</th>
@@ -81,7 +83,7 @@
 										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp;  
 										<!-- &nbsp;는 띄어쓰기, 즉 공백을 나타내는 특수문자  -->
 							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDetailModi'">수정</button> &nbsp;&nbsp;  
-							            <button class="btn btn-primary" >삭제</button> &nbsp;&nbsp;  
+							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDelete'">삭제</button> &nbsp;&nbsp;  
 							         </td>
 							      </tr>
    

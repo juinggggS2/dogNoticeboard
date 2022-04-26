@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
 	                            
-	                            <form action="noticeInsert" method="post">
+	                            <form action="boardInsert" method="post">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
 									<col width="25%">

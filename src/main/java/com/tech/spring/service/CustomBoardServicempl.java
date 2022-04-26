@@ -25,8 +25,21 @@ public class CustomBoardServicempl implements CustomBoardService{
 
 	@Override
 	public BoardDto boardDetail(int boardSeq) {
-		
 		return customBoardDao.boardDetail(boardSeq);
+	}
+
+	@Override
+	public void boardInsert(BoardDto dto, String userNick) {
+		
+		dto.setBoard_writer(userNick);
+		customBoardDao.boardInsert(dto);
+		
+	}
+
+	@Override
+	public void boardDelete(int boardSeq) {
+		customBoardDao.boardDelete(boardSeq);
+		
 	}
 	 
 
