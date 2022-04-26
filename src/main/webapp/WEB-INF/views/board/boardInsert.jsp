@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="${path }/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
 	                            
-	                            <form action="boardInsert" method="post">
+	                            <form action="boardInsert" action="${path }/board/boardInsert" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
 									<col width="25%">
@@ -61,18 +61,21 @@
                                   </tr>
                                   <tr>
                                       <th >작성자</th>
-                                      <td ><input type="text" class="form-control" id="writer" value="${sessionScope.userNick}" readonly></td>
+                                      <td ><input type="text" class="form-control" id="writer" value="${sessionScope.userNick}" readonly>
+                                      </td>
                                    </tr>
                                    <tr>
                                       <th>제목</th>
-                                      <td><input type="text" class="form-control" id="title" name="board_title"></td>
+                                      <td><input type="text" class="form-control" id="title" name="board_title">
+                                      <div id="title_check"></div></td>
                                    </tr>
                                    <tr>
                                       <th>내용</th>
-                                      <td><textarea class="form-control" id="text" name="board_text"></textarea></td>
+                                      <td><textarea class="form-control" id="text" name="board_text"></textarea>
+                                      <div id="text_check"></div></td>
                                    </tr>
 							      <tr>
-							         <td >파일</td>
+							         <th>파일</th>
 							          <td>
 							            <input type="file" id="file" name="file" multiple="multiple">   
 							         </td>
@@ -82,7 +85,7 @@
 							      <tr>
 							         <td colspan="2">
 										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp; 
-										<button class="btn btn-primary" type="submit" >저장</button> 
+										 <a class="btn btn-primary" onclick="return insert_check()">저장</a>
 							         </td>
 							         
 							      </tr>
@@ -105,7 +108,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-
+	<script src="${path }/resources/js/boardInsert.js"></script> 
 
     <!-- Bootstrap core JavaScript-->
     <script src="${path }/resources/vendor/jquery/jquery.min.js"></script>

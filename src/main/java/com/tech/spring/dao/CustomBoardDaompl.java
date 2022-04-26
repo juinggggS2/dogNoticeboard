@@ -56,6 +56,12 @@ public class CustomBoardDaompl implements CustomBoardDao {
 	public void boardDelete(int boardSeq) {
 		sqlSession.delete("boardDelete", boardSeq);
 	}
+
+	@Override
+	public void boardDetailModi(BoardDto dto) {
+		sqlSession.update(nameSpace + ".boardDetailModi", dto);
+		
+	}
 	 
 	
 	

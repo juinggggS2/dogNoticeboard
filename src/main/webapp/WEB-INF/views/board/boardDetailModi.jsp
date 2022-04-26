@@ -47,7 +47,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-	                            
+	                             <form id="boardDetailModi" action="${path }/board/boardDetailModi" method="post" enctype="multipart/form-data">
+                            	<input type="hidden" id="board_idx" name="board_seq" value="${dto.board_seq }">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
 									<col width="25%">
@@ -56,7 +57,7 @@
                                   
                                   <tr>
                                       <th>게시판 타입</th>
-                                      <td>자유게시판 NO.${boardDetail.board_seq }</td>
+                                      <td>자유게시판</td>
                                   </tr>
                                   <tr>
                                       <th >작성자</th>
@@ -80,12 +81,13 @@
 							      <tr>
 							         <td colspan="2">
 										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp;  
-										<button class="btn btn-primary" >글저장</button> 
+										<a class="btn btn-primary" onclick="return modi_check()">저장</a>
 							         </td>
 							         
 							      </tr>
    
                                 </table>
+                                </form>
                             </div>
                         </div>
                     </div>

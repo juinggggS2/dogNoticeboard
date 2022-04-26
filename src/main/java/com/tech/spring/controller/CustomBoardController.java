@@ -38,7 +38,7 @@ public class CustomBoardController {
 		return "board/board";	
 	}
 	
-	//게시물상세보기조희이동
+	//게시물상세보기조회이동
 	@GetMapping("/boardDetail")
 	public String boardDetail(HttpServletRequest request, Model model) {
 		System.out.println("=========pass by boardDetail()=============");
@@ -79,6 +79,20 @@ public class CustomBoardController {
 		public String boardDetailModi() {
 			return "board/boardDetailModi";
 		}	
+		
+		// 게시판 수정하기
+		@PostMapping("/boardDetailModi")
+		public ModelAndView boardDetailModiAction(BoardDto dto) {
+			ModelAndView mav = new ModelAndView("msg/msg");
+			
+			customBoardService.boardDetailModi(dto);
+			
+			mav.addObject("msg", "게시글 수정");
+			mav.addObject("url", "/board/boardDetail?board_seq=" + dto.getBoard_seq());
+			
+			return mav;
+		}	
+		
 		
 		//게시물삭제
 		@RequestMapping("/boardDelete")

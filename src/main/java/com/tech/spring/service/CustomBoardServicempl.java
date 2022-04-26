@@ -41,6 +41,12 @@ public class CustomBoardServicempl implements CustomBoardService{
 		customBoardDao.boardDelete(boardSeq);
 		
 	}
+
+	@Override
+	public void boardDetailModi(BoardDto dto) {
+		customBoardDao.boardDetailModi(dto);
+		
+	}
 	 
 
 		

@@ -14,6 +14,8 @@ public interface CustomBoardService {
 	public void boardInsert(BoardDto dto, String userNick);
 	//보드글삭제
 	public void boardDelete(int boardSeq);
+	//보드글수정하기
+	public void boardDetailModi(BoardDto dto);
 	
 }
 

@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="${path }/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -56,7 +56,7 @@
                                   
                                   <tr>
                                       <th>게시판 타입</th>
-                                      <td>자유게시판
+                                      <td>자유게시판 
                                       <input type="hidden" class="form-control" id="no" value="${boardDetail.board_seq }" readonly>
 										</td>
                                   </tr>
@@ -82,8 +82,11 @@
 							         <td colspan="2">
 										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp;  
 										<!-- &nbsp;는 띄어쓰기, 즉 공백을 나타내는 특수문자  -->
-							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDetailModi'">수정</button> &nbsp;&nbsp;  
-							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDelete'">삭제</button> &nbsp;&nbsp;  
+							            <c:if test="${sessionScope.userNick == boardDetail.board_writer }">
+							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDetailModi?board_seq=${boardDetail.board_seq }'">수정</button> &nbsp;&nbsp;  
+							            <%-- <button class="btn btn-primary" onclick="location.href='${path}/board/boardDelete?board_seq=${boardDetail.board_seq }'">삭제</button> &nbsp;&nbsp;  --%>  
+							            <a class="btn btn-primary" onclick="return delete_check()">삭제</a> 
+							         	</c:if>
 							         </td>
 							      </tr>
    
@@ -104,7 +107,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-
+	<script src="${path }/resources/js/boardDetail.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="${path }/resources/vendor/jquery/jquery.min.js"></script>

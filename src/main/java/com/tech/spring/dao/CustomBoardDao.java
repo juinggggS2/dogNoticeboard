@@ -12,6 +12,8 @@ public interface CustomBoardDao {
 	//보드글쓰기
 	public void boardInsert(BoardDto dto);
 	//보드글삭제
-	public void boardDelete(int board_seq);
+	public void boardDelete(int boardSeq);
+	//보드글수정하기
+	public void boardDetailModi(BoardDto dto);
 
 }

@@ -70,7 +70,18 @@ order by
 			board_seq = #{board_seq}
 	</delete>
  
- 
+ <!-- 게시물 수정 -->
+	<update id="boardDetailModi" parameterType="BoardDto">
+		update
+			general_board
+		set 
+			board_title = #{board_title},
+			board_text = #{board_text},
+			board_mod_date = default, 
+			board_img_path = #{board_img_path}
+		where
+			board_seq = #{board_seq}
+	</update>
  
  
  
