@@ -65,6 +65,8 @@ public class CustomBoardController {
 	public ModelAndView boardInsertExecute(BoardDto dto, HttpSession session) {
 		ModelAndView mav = new ModelAndView("msg/msg");
 		
+		System.out.println(dto.getBoard_title());
+		
 		customBoardService.boardInsert(dto, (String) session.getAttribute("userNick"));
 		
 		mav.addObject("msg", "게시글 전송");
@@ -73,14 +75,13 @@ public class CustomBoardController {
 		return mav;
 	}
 	
-	
-	//게시물수정페이지이동
+		//게시물수정페이지이동
 		@GetMapping("/boardDetailModi")
 		public String boardDetailModi() {
 			return "board/boardDetailModi";
 		}	
 		
-		// 게시판 수정하기
+		//게시판 수정하기
 		@PostMapping("/boardDetailModi")
 		public ModelAndView boardDetailModiAction(BoardDto dto) {
 			ModelAndView mav = new ModelAndView("msg/msg");
@@ -93,10 +94,9 @@ public class CustomBoardController {
 			return mav;
 		}	
 		
-		
 		//게시물삭제
-		@RequestMapping("/boardDelete")
-		public ModelAndView boardDelete(@RequestParam int board_seq) {
+		@PostMapping("/boardDelete")
+		public ModelAndView boardDelete(@RequestParam("board_seq") int board_seq) {
 			
 			ModelAndView mav = new ModelAndView("msg/msg");
 			
@@ -106,9 +106,6 @@ public class CustomBoardController {
 			mav.addObject("url", "/board/board");
 			
 			return mav;
-			
-			
-			
 		}
 	
 	

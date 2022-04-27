@@ -62,6 +62,7 @@ public class CustomUserController {
 	@ResponseBody
 	@PostMapping("/nickCheck")
 	public int nickCheck(@RequestParam String custom_user_nick) {
+		System.out.println("닉체크!");
 		return customUserService.nickCheck(custom_user_nick);
 
 	}

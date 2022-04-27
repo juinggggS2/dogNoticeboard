@@ -47,7 +47,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-	                             <form id="boardDetailModi" action="${path }/board/boardDetailModi" method="post" enctype="multipart/form-data">
+	                             <form id="boardDetailModi" action="${path }/board/boardDetailModi" method="post">
                             	<input type="hidden" id="board_idx" name="board_seq" value="${dto.board_seq }">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
@@ -65,11 +65,12 @@
                                    </tr>
                                    <tr>
                                       <th>제목</th>
-                                      <td><input type="text" class="form-control" id="title" name="board_title"></td>
+                                      <td><input type="text" class="form-control" id="title" name="board_title"
+                                       value="${dto.board_title }"></td>
                                    </tr>
                                    <tr>
                                       <th>내용</th>
-                                      <td><textarea class="form-control" id="text" name="board_text"></textarea></td>
+                                      <td><textarea class="form-control" id="text" name="board_text">${dto.board_text }</textarea></td>
                                    </tr>
 							      <tr>
 							         <td >파일</td>

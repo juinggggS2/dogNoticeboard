@@ -24,7 +24,7 @@ function join_check() {
 		$('#name_check').text('이름을 입력해주세요!');
 		$('#name_check').css('color', 'red');
 		$('#name').focus();
-		
+		console.log($('#name').val());
 		return false;
 	}
 	
@@ -78,7 +78,7 @@ function join_check() {
 	}
 	
 	if (repeat_pswd == "") {
-		$('#repeat_pswd_check').text('비밀번호 확인를 입력해주세요!');
+		$('#repeat_pswd_check').text('비밀번호를 입력해주세요!');
 		$('#repeat_pswd_check').css('color', 'red');
 		$('#repeat_pswd').focus();
 		
@@ -98,19 +98,21 @@ function join_check() {
 		document.getElementById('register').submit();
 		
 		return true;
+		
 	} else {
 		
 	 return false;
 
 	}
 }
+
 console.log('접근');
 $('#nick').blur(function(){
-	console.log('nick');
 	let nick = $('#nick').val();
+	console.log('닉네임 = ' + nick);
 	let nick_reg = RegExp(/^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,30}$/);
 	
-	$.ajax({
+		$.ajax({
 		url : '/user/nickCheck?custom_user_nick=' + nick,
 		type : 'post',
 		success : function(result) {
@@ -128,7 +130,7 @@ $('#nick').blur(function(){
 				$('#nick').focus();
 			}
 		}, error : function() {
-			console.log('오류');
+			alert('오류');
 		}
 	})
 });

@@ -48,6 +48,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
 	                            
+	                            <form id="boardDelete" action="${path }/board/boardDelete" method="post" >
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
 									<col width="25%">
@@ -57,7 +58,7 @@
                                   <tr>
                                       <th>게시판 타입</th>
                                       <td>자유게시판 
-                                      <input type="hidden" class="form-control" id="no" value="${boardDetail.board_seq }" readonly>
+                                      <input type="hidden" name="board_seq" class="form-control" id="no" value="${boardDetail.board_seq }" readonly>
 										</td>
                                   </tr>
                                   <tr>
@@ -80,10 +81,11 @@
 							      </tr>
 							      <tr>
 							         <td colspan="2">
-										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp;  
+										<button class="btn btn-primary" type="button" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp;  
+										<!-- type="button" 추가하기 -->
 										<!-- &nbsp;는 띄어쓰기, 즉 공백을 나타내는 특수문자  -->
 							            <c:if test="${sessionScope.userNick == boardDetail.board_writer }">
-							            <button class="btn btn-primary" onclick="location.href='${path}/board/boardDetailModi?board_seq=${boardDetail.board_seq }'">수정</button> &nbsp;&nbsp;  
+							            <button class="btn btn-primary" type="button" onclick="location.href='${path}/board/boardDetailModi?board_seq=${boardDetail.board_seq }'">수정</button> &nbsp;&nbsp;  
 							            <%-- <button class="btn btn-primary" onclick="location.href='${path}/board/boardDelete?board_seq=${boardDetail.board_seq }'">삭제</button> &nbsp;&nbsp;  --%>  
 							            <a class="btn btn-primary" onclick="return delete_check()">삭제</a> 
 							         	</c:if>
@@ -91,6 +93,7 @@
 							      </tr>
    
                                 </table>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
 	                            
-	                            <form action="boardInsert" action="${path }/board/boardInsert" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+	                            <form id="boardInsert" action="${path }/board/boardInsert" method="post" >
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                   <colgroup>
 									<col width="25%">
@@ -84,7 +84,7 @@
 							      
 							      <tr>
 							         <td colspan="2">
-										<button class="btn btn-primary" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp; 
+										<button class="btn btn-primary" type="button" onclick="location.href='${path}/board/board'">목록으로</button> &nbsp;&nbsp; 
 										 <a class="btn btn-primary" onclick="return insert_check()">저장</a>
 							         </td>
 							         

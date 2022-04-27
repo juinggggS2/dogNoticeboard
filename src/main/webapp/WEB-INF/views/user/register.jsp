@@ -106,7 +106,7 @@
                 </div>
             </div>
         </div>
-		</form>
+		
     </div>
 
 	<script src="${path }/resources/js/register.js"></script>
