@@ -105,7 +105,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-
+	<script src="${path }/resources/js/boardDetailModi.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="${path }/resources/vendor/jquery/jquery.min.js"></script>

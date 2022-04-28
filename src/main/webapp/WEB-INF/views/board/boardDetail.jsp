@@ -85,7 +85,7 @@
 										<!-- type="button" 추가하기 -->
 										<!-- &nbsp;는 띄어쓰기, 즉 공백을 나타내는 특수문자  -->
 							            <c:if test="${sessionScope.userNick == boardDetail.board_writer }">
-							            <button class="btn btn-primary" type="button" onclick="location.href='${path}/board/boardDetailModi?board_seq=${boardDetail.board_seq }'">수정</button> &nbsp;&nbsp;  
+							            <button class="btn btn-primary" type="button" onclick="location.href='${path}/board/boardDetailModi?board_seq=${boardDetail.board_seq }'">수정</button> &nbsp;&nbsp;
 							            <%-- <button class="btn btn-primary" onclick="location.href='${path}/board/boardDelete?board_seq=${boardDetail.board_seq }'">삭제</button> &nbsp;&nbsp;  --%>  
 							            <a class="btn btn-primary" onclick="return delete_check()">삭제</a> 
 							         	</c:if>
