@@ -1,8 +1,11 @@
 package com.tech.spring.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tech.spring.dto.BoardDto;
@@ -58,18 +62,50 @@ public class CustomBoardController {
 	
 	//게시물생성페이지이동
 	@GetMapping("/boardInsert")
-	public String boardInsert(int board_seq) {
+	public String boardInsert() {
 		return "board/boardInsert";
 	}	
 	
 	//게시물생성하기
 	@PostMapping("/boardInsert")
-	public ModelAndView boardInsertExecute(BoardDto dto, HttpSession session) {
+	public ModelAndView boardInsertExecute(@RequestParam(value="file", required=false) MultipartFile singleFile, 
+			HttpServletRequest request, 
+			BoardDto dto, HttpSession session) {
 		ModelAndView mav = new ModelAndView("msg/msg");
 		
 		System.out.println(dto.getBoard_title());
 		
 		customBoardService.boardInsert(dto, (String) session.getAttribute("userNick"));
+		
+			// 1. 전송받은 파일 및 파일설명 값 가져오기
+			System.out.println("singleFile : " + singleFile.toString());
+			
+			
+			// 2. 저장할 경로 가져오기
+			String path = request.getSession().getServletContext().getRealPath("resources");
+			System.out.println("path : " + path);
+			String root = path + "\\uploadFiles" ;
+			
+			File file = new File(root);
+			
+			// 만약 uploadFiles 폴더가 없으면 생성해라 라는뜻
+			if(!file.exists()) file.mkdirs();
+			
+			// 업로드할 폴더 설정
+			String originFileName = singleFile.getOriginalFilename();
+			String ext = originFileName.substring(originFileName.lastIndexOf("."));
+			String ranFileName = UUID.randomUUID().toString() + ext;
+			
+			File changeFile = new File(root + "\\" + ranFileName);
+			
+			// 파일업로드
+			try {
+				singleFile.transferTo(changeFile);
+				System.out.println("파일 업로드 성공");
+			} catch (IllegalStateException | IOException e) {
+				System.out.println("파일 업로드 실패");
+				e.printStackTrace();
+		}	
 		
 		mav.addObject("msg", "게시글 전송");
 		mav.addObject("url", "/board/boardDetail?board_seq=" + dto.getBoard_seq());

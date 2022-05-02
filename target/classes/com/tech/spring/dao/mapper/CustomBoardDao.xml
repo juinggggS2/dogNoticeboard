@@ -56,7 +56,7 @@ order by
 			#{board_writer},
 			default,
 			default,
-			default,
+			#{board_img_path, jdbcType=VARCHAR},
 			default
 	)
  </insert>

@@ -74,7 +74,7 @@
                                       <td>${boardDetail.board_text }</td>
                                    </tr>
 							      <tr>
-							         <td >파일</td>
+							         <th >파일</th>
 							          <td>
 							            <a href=""></a>   
 							         </td>
