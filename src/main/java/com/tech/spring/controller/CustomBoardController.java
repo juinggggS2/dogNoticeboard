@@ -66,41 +66,52 @@ public class CustomBoardController {
 	public ModelAndView boardInsertExecute(@RequestParam(value = "file", required = false) MultipartFile singleFile,
 			HttpServletRequest request, BoardDto dto, HttpSession session) {
 		ModelAndView mav = new ModelAndView("msg/msg");
-
+		
 		System.out.println(dto.getBoard_title());
-
-		customBoardService.boardInsert(dto, (String) session.getAttribute("userNick"));
-
-		// 1. 전송받은 파일 및 파일설명 값 가져오기
-		System.out.println("singleFile : " + singleFile.toString());
-
-		// 2. 저장할 경로 가져오기
-		String path = request.getSession().getServletContext().getRealPath("resources");
-		System.out.println("path : " + path);
-		String root = path + "\\uploadFiles";
-
-		File file = new File(root);
-
-		// 만약 uploadFiles 폴더가 없으면 생성해라 라는뜻
-		if (!file.exists())
-			file.mkdirs();
-
-		// 업로드할 폴더 설정
 		String originFileName = singleFile.getOriginalFilename();
-		String ext = originFileName.substring(originFileName.lastIndexOf("."));
-		String ranFileName = UUID.randomUUID().toString() + ext;
+		System.out.println("오리지날 파일네임 : "+originFileName);
+		System.out.println("오리지날 파일네임 길이 : "+originFileName.length());
+			
+			// 1. 전송받은 파일 및 파일설명 값 가져오기
+			System.out.println("singleFile : " + singleFile.toString());
+			if(originFileName.length()!=0) { 
+			// 2. 저장할 경로 가져오기
+			String path = request.getSession().getServletContext().getRealPath("resources");
+			System.out.println("path : " + path);
+			String root = path + "\\uploadFiles";
 
-		File changeFile = new File(root + "\\" + ranFileName);
+			File file = new File(root);
 
-		// 파일업로드
-		try {
-			singleFile.transferTo(changeFile);
-			System.out.println("파일 업로드 성공");
-		} catch (IllegalStateException | IOException e) {
-			System.out.println("파일 업로드 실패");
-			e.printStackTrace();
+			// 만약 uploadFiles 폴더가 없으면 생성해라 라는뜻
+			if (!file.exists())
+				file.mkdirs();
+
+			// 업로드할 폴더 설정
+			System.out.println("1");
+			System.out.println("originFileName : "+originFileName);
+			System.out.println("2");
+			String ext = originFileName.substring(originFileName.lastIndexOf("."));
+				
+			System.out.println("3");
+			String ranFileName = UUID.randomUUID().toString()+ext;
+			System.out.println("4");
+			File changeFile = new File(root + "\\" + ranFileName);
+
+			// 파일업로드
+			try {
+				singleFile.transferTo(changeFile);
+				System.out.println("파일 업로드 성공");
+			} catch (IllegalStateException | IOException e) {
+				System.out.println("파일 업로드 실패");
+				e.printStackTrace();
+			}
+			dto.setBoard_img_path(ranFileName);
+			System.out.println("ranFileName : "+ranFileName);
 		}
-
+		
+		
+		customBoardService.boardInsert(dto, (String) session.getAttribute("userNick"));
+		
 		mav.addObject("msg", "게시글 전송");
 		mav.addObject("url", "/board/boardDetail?board_seq=" + dto.getBoard_seq());
 

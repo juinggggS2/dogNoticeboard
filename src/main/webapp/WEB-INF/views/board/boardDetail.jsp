@@ -76,7 +76,9 @@
 							      <tr>
 							         <th >파일</th>
 							          <td>
-							            <a href=""></a>   
+							          	 <c:if test="${boardDetail.board_img_path != null}">
+							         	   <img src="${path }/resources/uploadFiles/${boardDetail.board_img_path}">  
+							            </c:if> 
 							         </td>
 							      </tr>
 							      <tr>
