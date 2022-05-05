@@ -1,11 +1,18 @@
 function insert_check() {
 	
+	let writer = $('#writer').val();
   	let title = $('#title').val();
   	let text = $('#text').val();
       	
+    $('#writer_check').text('');  	
   	$('#title_check').text('');
   	$('#text_check').text('');
     	
+  	if (writer == "") {
+  		$('#writer_check').text('제목 입력(필수)');
+  		$('#writer_check').css('color', 'red');
+  		$('#writer').focus();
+  	}
   	
   	if (title == "") {
   		$('#title_check').text('제목 입력(필수)');
