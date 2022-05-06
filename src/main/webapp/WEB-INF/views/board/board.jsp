@@ -29,7 +29,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
+	
         <!-- Sidebar -->
        		<c:import url="/WEB-INF/views/common/sidebar.jsp"/>
         <!-- End of Sidebar -->
@@ -55,7 +55,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <tr >
                                             <th width="5%"></th>
-                                            <th width="5%">No</th>
+                                            <th width="5%">No.</th>
                                             <th width="15%">작성자</th>
                                             <th width="25%">제목</th>
                                             <th width="30%">내용</th>
