@@ -87,14 +87,14 @@ public class CustomBoardController {
 				file.mkdirs();
 
 			// 업로드할 폴더 설정
-			System.out.println("1");
+			//System.out.println("1");
 			System.out.println("originFileName : "+originFileName);
-			System.out.println("2");
+			//System.out.println("2");
 			String ext = originFileName.substring(originFileName.lastIndexOf("."));
 				
-			System.out.println("3");
+			//System.out.println("3");
 			String ranFileName = UUID.randomUUID().toString()+ext;
-			System.out.println("4");
+			//System.out.println("4");
 			File changeFile = new File(root + "\\" + ranFileName);
 
 			// 파일업로드
