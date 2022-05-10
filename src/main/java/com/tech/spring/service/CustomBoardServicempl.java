@@ -19,7 +19,7 @@ public class CustomBoardServicempl implements CustomBoardService{
 	  @Override 
 	  public ArrayList<BoardDto> boardList() {
 	  
-	  return customBoardDao.boardList(); 
+		  return customBoardDao.boardList(); 
 	  
 	  }
 

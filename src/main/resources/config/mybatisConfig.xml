@@ -10,5 +10,6 @@
   		<typeAlias type="com.tech.spring.dto.UserDto" alias="UserDto"/>
 		<typeAlias type="com.tech.spring.dto.BoardDto" alias="BoardDto"/>
   		<typeAlias type="com.tech.spring.vopage.PageVO" alias="PageVO"/>
+  		<typeAlias type="com.tech.spring.vopage.SearchVO" alias="SearchVO"/>
   	</typeAliases>
   </configuration>

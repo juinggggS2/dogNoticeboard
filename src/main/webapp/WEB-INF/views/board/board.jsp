@@ -73,6 +73,32 @@
                                  </c:forEach>
                                 </table>
                             </div>
+                            
+                            <form id="form1" name="form1" action="board" method="post">
+								<c:if test="${searchVO.totPage>1 }">
+									<c:if test="${searchVO.page>1 }">
+										<a href="boardList?page=1">[처음]</a>
+										<a href="boardList?page=${searchVO.page-1 }">[이전]</a>
+									</c:if>
+									<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }"
+										var="i">
+										<c:choose>
+											<c:when test="${i eq searchVO.page }">
+												<span style="color: red; font-weight: bold;">${i } &nbsp;</span>
+											</c:when>
+											<c:otherwise>
+												<a href="boardList?page=${i }">${i } </a>&nbsp;
+									</c:otherwise>
+										</c:choose>
+									</c:forEach>
+									<c:if test="${searchVO.totPage>searchVO.page }">
+										<a href="boardList?page=${searchVO.page+1 }">[다음]</a>
+										<a href="boardList?page=${searchVO.totPage }">[마지막]</a>
+									</c:if>
+								</c:if>
+							</form>
+                            
+                            
                         </div>
                     </div>
 

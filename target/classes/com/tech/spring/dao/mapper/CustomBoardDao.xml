@@ -7,24 +7,24 @@
  <select id="boardList" parameterType="PageVO" resultType="BoardDto">
  	select 
 	r1.*
-from 
-	(
-	select 
-		gb.board_seq,
-		gb.board_title,
-		cu.custom_user_nick as board_writer,
-		gb.board_text,
-		date_format(board_mod_date, '%Y-%m-%d') AS board_mod_date,
-		gb.board_del_yn
 	from 
-		general_board gb join custom_user cu 
-	on gb.board_writer = cu.custom_user_nick
-	where 
-	board_del_yn = 'n'
-	)r1
-order by
-	board_seq desc
- 
+		(
+		select 
+			gb.board_seq,
+			gb.board_title,
+			cu.custom_user_nick as board_writer,
+			gb.board_text,
+			date_format(board_mod_date, '%Y-%m-%d') AS board_mod_date,
+			gb.board_del_yn
+		from 
+			general_board gb join custom_user cu 
+		on gb.board_writer = cu.custom_user_nick
+		where 
+		board_del_yn = 'n'
+		)r1
+	order by
+		board_seq desc
+	limit #{rowStart}, #{rowEnd}
  </select>
  
  <!-- 게시글조회 -->

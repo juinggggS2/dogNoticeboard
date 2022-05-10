@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tech.spring.dto.BoardDto;
 import com.tech.spring.service.CustomBoardService;
+import com.tech.spring.vopage.SearchVO;
 
 @Controller
 @RequestMapping("/board")
@@ -30,12 +31,34 @@ public class CustomBoardController {
 	CustomBoardService customBoardService;
 
 	// 게시물보드이동
-	@GetMapping("/board")
-	public String boardList(HttpServletRequest request, Model model) {
+	@RequestMapping("/board")
+	public String boardList(HttpServletRequest request, 
+							SearchVO searchVO, 
+							Model model) {
 		System.out.println("=========pass by boardList()=============");
 
+		// paging
+		String strPage = request.getParameter("page");
+		System.out.println("strPage1 : " + strPage);
+		if (strPage == null) {
+			strPage = "1";
+		}
+		System.out.println("strPage2 : " + strPage);
+		
+		int page = Integer.parseInt(strPage);
+		searchVO.setCurrentPage(page);
+		//searchVO.setPageStart(page);
+		System.out.println("clickPage : " + strPage);
+		System.out.println("pageStart : " + searchVO.getPageStart());
+		System.out.println("pageEnd : " + searchVO.getPageEnd());
+		System.out.println("pageTot : " + searchVO.getTotPage());
+		System.out.println("rowStart : " + searchVO.getRowStart());
+		System.out.println("rowEnd : " + searchVO.getRowEnd());
+		
+		
 		ArrayList<BoardDto> boardList = customBoardService.boardList();
 		model.addAttribute("boardList", boardList);
+		model.addAttribute("searchVO", searchVO);
 
 		return "board/board";
 	}
