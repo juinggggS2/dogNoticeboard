@@ -47,6 +47,11 @@ public class CustomBoardServicempl implements CustomBoardService{
 		customBoardDao.boardDetailModi(dto);
 		
 	}
+
+	@Override
+	public int selectNoticeTotCount() {
+		return customBoardDao.selectNoticeTotCount();
+	}
 	 
 
 		

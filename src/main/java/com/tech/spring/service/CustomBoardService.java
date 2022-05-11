@@ -16,6 +16,8 @@ public interface CustomBoardService {
 	public void boardDelete(int boardSeq);
 	//보드글수정하기
 	public void boardDetailModi(BoardDto dto);
+	//총게시물수
+	public int selectNoticeTotCount();
 	
 }
 

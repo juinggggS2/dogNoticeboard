@@ -35,7 +35,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">LOGIN SCREENS:</h6>
                         <a class="collapse-item" href="${path }/user/login">Login</a>
-                        <a class="collapse-item" href="${path }/user/register">Register</a>
+                        <a class="collapse-item" href="/user/register">Register</a>
                         <a class="collapse-item" href="${path }/user/forgetPswd">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">OTHER PAGES:</h6>

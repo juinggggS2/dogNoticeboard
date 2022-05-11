@@ -24,7 +24,7 @@
 		)r1
 	order by
 		board_seq desc
-	limit #{rowStart}, #{rowEnd}
+	limit #{rowStart }, #{displayRowCount }
  </select>
  
  <!-- 게시글조회 -->
@@ -83,6 +83,10 @@
 			board_seq = #{board_seq}
 	</update>
  
+ 	<select id="selectNoticeTotCount" resultType="Integer">
+		select count(board_title)
+		from general_board
+	</select>
  
  
  

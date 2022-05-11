@@ -22,8 +22,11 @@ import com.tech.spring.dto.BoardDto;
 import com.tech.spring.service.CustomBoardService;
 import com.tech.spring.vopage.SearchVO;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @Controller
-@RequestMapping("/board")
+@RequestMapping("/board/*")
 public class CustomBoardController {
 	// 게시판 생성시, seq -> redirect -> RedirectAttribute ->addAttribute(boardSeq,{seq})
 
@@ -31,7 +34,7 @@ public class CustomBoardController {
 	CustomBoardService customBoardService;
 
 	// 게시물보드이동
-	@RequestMapping("/board")
+	@GetMapping("/board")
 	public String boardList(HttpServletRequest request, 
 							SearchVO searchVO, 
 							Model model) {
@@ -46,9 +49,16 @@ public class CustomBoardController {
 		System.out.println("strPage2 : " + strPage);
 		
 		int page = Integer.parseInt(strPage);
-		searchVO.setCurrentPage(page);
+		searchVO.setPage(page);
 		//searchVO.setPageStart(page);
+		
+		//totcnt
+		int total = customBoardService.selectNoticeTotCount();
+		searchVO.pageCalculate(total);
+		System.out.println("total: " + total);
+		
 		System.out.println("clickPage : " + strPage);
+		//log.info(searchVO);
 		System.out.println("pageStart : " + searchVO.getPageStart());
 		System.out.println("pageEnd : " + searchVO.getPageEnd());
 		System.out.println("pageTot : " + searchVO.getTotPage());

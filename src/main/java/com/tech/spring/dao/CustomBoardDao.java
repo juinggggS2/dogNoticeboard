@@ -15,5 +15,7 @@ public interface CustomBoardDao {
 	public void boardDelete(int boardSeq);
 	//보드글수정하기
 	public void boardDetailModi(BoardDto dto);
+	
+	public int selectNoticeTotCount();
 
 }

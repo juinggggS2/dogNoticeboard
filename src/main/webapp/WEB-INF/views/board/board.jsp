@@ -74,7 +74,7 @@
                                 </table>
                             </div>
                             
-                            <form id="form1" name="form1" action="board" method="post">
+                            <form id="form1" name="form1" action="/board/board" method="get">
 								<c:if test="${searchVO.totPage>1 }">
 									<c:if test="${searchVO.page>1 }">
 										<a href="boardList?page=1">[처음]</a>
