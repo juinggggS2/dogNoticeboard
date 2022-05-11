@@ -77,8 +77,8 @@
                             <form id="form1" name="form1" action="/board/board" method="get">
 								<c:if test="${searchVO.totPage>1 }">
 									<c:if test="${searchVO.page>1 }">
-										<a href="boardList?page=1">[처음]</a>
-										<a href="boardList?page=${searchVO.page-1 }">[이전]</a>
+										<a href="board?page=1">[처음]</a>
+										<a href="board?page=${searchVO.page-1 }">[이전]</a>
 									</c:if>
 									<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }"
 										var="i">
@@ -87,13 +87,13 @@
 												<span style="color: red; font-weight: bold;">${i } &nbsp;</span>
 											</c:when>
 											<c:otherwise>
-												<a href="boardList?page=${i }">${i } </a>&nbsp;
-									</c:otherwise>
+												<a href="board?page=${i }">${i } </a>&nbsp;
+											</c:otherwise>
 										</c:choose>
 									</c:forEach>
 									<c:if test="${searchVO.totPage>searchVO.page }">
-										<a href="boardList?page=${searchVO.page+1 }">[다음]</a>
-										<a href="boardList?page=${searchVO.totPage }">[마지막]</a>
+										<a href="board?page=${searchVO.page+1 }">[다음]</a>
+										<a href="board?page=${searchVO.totPage }">[마지막]</a>
 									</c:if>
 								</c:if>
 							</form>

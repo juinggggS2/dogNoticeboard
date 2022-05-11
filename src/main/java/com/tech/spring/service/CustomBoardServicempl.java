@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.tech.spring.dao.CustomBoardDao;
 import com.tech.spring.dto.BoardDto;
+import com.tech.spring.vopage.SearchVO;
 
 @Service
 public class CustomBoardServicempl implements CustomBoardService{
@@ -17,9 +18,9 @@ public class CustomBoardServicempl implements CustomBoardService{
 	  CustomBoardDao customBoardDao;
 	  
 	  @Override 
-	  public ArrayList<BoardDto> boardList() {
+	  public ArrayList<BoardDto> boardList(SearchVO searchVO) {
 	  
-		  return customBoardDao.boardList(); 
+		  return customBoardDao.boardList(searchVO); 
 	  
 	  }
 
@@ -49,8 +50,8 @@ public class CustomBoardServicempl implements CustomBoardService{
 	}
 
 	@Override
-	public int selectNoticeTotCount() {
-		return customBoardDao.selectNoticeTotCount();
+	public int selectNoticeTotCount(SearchVO searchVO) {
+		return customBoardDao.selectNoticeTotCount(searchVO);
 	}
 	 
 

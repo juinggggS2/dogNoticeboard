@@ -25,6 +25,7 @@ public class PageVO {
 
         pageStart = (page - (page - 1) % grpPageCnt) ;
         pageEnd = pageStart + (grpPageCnt-1);
+        
         if (pageEnd > totPage) {
             pageEnd = totPage;
         }

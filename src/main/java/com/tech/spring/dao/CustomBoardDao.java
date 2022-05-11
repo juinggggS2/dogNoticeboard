@@ -3,10 +3,11 @@ package com.tech.spring.dao;
 import java.util.ArrayList;
 
 import com.tech.spring.dto.BoardDto;
+import com.tech.spring.vopage.SearchVO;
 
 public interface CustomBoardDao {
 	//보드리스트
-	public ArrayList<BoardDto> boardList();
+	public ArrayList<BoardDto> boardList(SearchVO searchVO);
 	//보드상세보기
 	public BoardDto boardDetail(int boardSeq); 
 	//보드글쓰기
@@ -16,6 +17,6 @@ public interface CustomBoardDao {
 	//보드글수정하기
 	public void boardDetailModi(BoardDto dto);
 	
-	public int selectNoticeTotCount();
+	public int selectNoticeTotCount(SearchVO searchVO);
 
 }

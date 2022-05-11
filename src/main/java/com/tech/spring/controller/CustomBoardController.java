@@ -8,6 +8,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.antlr.grammar.v3.TreeToNFAConverter.set_return;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,12 +54,14 @@ public class CustomBoardController {
 		//searchVO.setPageStart(page);
 		
 		//totcnt
-		int total = customBoardService.selectNoticeTotCount();
+		int total = customBoardService.selectNoticeTotCount(searchVO);
 		searchVO.pageCalculate(total);
 		System.out.println("total: " + total);
 		
 		System.out.println("clickPage : " + strPage);
 		//log.info(searchVO);
+		
+		System.out.println("DisplayRowCount : " +searchVO.getDisplayRowCount());
 		System.out.println("pageStart : " + searchVO.getPageStart());
 		System.out.println("pageEnd : " + searchVO.getPageEnd());
 		System.out.println("pageTot : " + searchVO.getTotPage());
@@ -66,8 +69,9 @@ public class CustomBoardController {
 		System.out.println("rowEnd : " + searchVO.getRowEnd());
 		
 		
-		ArrayList<BoardDto> boardList = customBoardService.boardList();
+		ArrayList<BoardDto> boardList = customBoardService.boardList(searchVO);
 		model.addAttribute("boardList", boardList);
+		model.addAttribute("totRowCnt", total);
 		model.addAttribute("searchVO", searchVO);
 
 		return "board/board";

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tech.spring.dto.BoardDto;
+import com.tech.spring.vopage.SearchVO;
 
 
 @Repository
@@ -20,9 +21,9 @@ public class CustomBoardDaompl implements CustomBoardDao {
 	  private static String nameSpace = "com.tech.spring.dao.CustomerBoardDao";
 	  
 	 @Override 
-	 public ArrayList<BoardDto> boardList() {
+	 public ArrayList<BoardDto> boardList(SearchVO searchVO) {
 		 System.out.println("=====DaoImpl boardList()=====");
-	 List<BoardDto> boardDto = sqlSession.selectList(nameSpace + ".boardList");
+	 List<BoardDto> boardDto = sqlSession.selectList(nameSpace + ".boardList", searchVO);
 //	  for (BoardDto dto : boardDto) {
 //		  System.out.println("타이틀: "+dto.getBoard_title());
 //		  System.out.println("작성자: "+dto.getBoard_writer());
@@ -63,8 +64,8 @@ public class CustomBoardDaompl implements CustomBoardDao {
 	}
 
 	@Override
-	public int selectNoticeTotCount() {
-		return sqlSession.selectOne(nameSpace + ".selectNoticeTotCount");
+	public int selectNoticeTotCount(SearchVO searchVO) {
+		return sqlSession.selectOne(nameSpace + ".selectNoticeTotCount", searchVO);
 	}
 	 
 	
